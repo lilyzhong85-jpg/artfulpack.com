@@ -1,8 +1,8 @@
 # ArtfulPack inquiry setup
 
-Status: frontend prepared; Formspree endpoint pending. No live delivery has been tested.
+Status: Formspree endpoint configured as `https://formspree.io/f/xljdjwdp`; live delivery still needs a real submission test.
 
-Set `data-formspree-endpoint` in `scripts/build.py` to the ArtfulPack form URL, then run `scripts/build.py`. This updates both homepage and contact form. Do not use another website's endpoint.
+The homepage and contact form use `data-formspree-endpoint="https://formspree.io/f/xljdjwdp"`. Activate the receiving email in Formspree and verify a real submission, including an attachment if required.
 
 Activate the receiving email in Formspree. Confirm the account supports file uploads before enabling live submissions with attachments. The frontend accepts PNG, JPG, PDF and AI up to 10 MB.
 
