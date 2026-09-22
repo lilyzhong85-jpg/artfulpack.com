@@ -31,7 +31,7 @@ const endpoint=form.dataset.formspreeEndpoint;
 if(endpoint){
  if(!/^https:\/\/formspree\.io\/f\/[a-zA-Z0-9]+$/.test(endpoint)){status.textContent='Online submission is unavailable. Please contact us by email or WhatsApp.';return;}
  submit.disabled=true;status.textContent='Sending your inquiry…';
- try{const response=await fetch(endpoint,{method:'POST',body:new FormData(form),headers:{Accept:'application/json'}});if(!response.ok)throw new Error('Submission failed');status.textContent='Thank you. Your inquiry has been submitted successfully.';form.reset();document.getElementById('brief-panel').hidden=true;}
+  try{const response=await fetch(endpoint,{method:'POST',body:new FormData(form),headers:{Accept:'application/json'}});if(!response.ok)throw new Error('Submission failed');status.textContent='Thank you. Your inquiry has been submitted successfully.';if(typeof gtag==='function'){gtag('event','generate_lead',{form_id:form.id||'inquiry-form',page_location:location.href});}form.reset();document.getElementById('brief-panel').hidden=true;}
  catch{status.textContent='We could not confirm your submission. Your details are still here. Please try again or contact us by email or WhatsApp.';}
  finally{submit.disabled=false;}return;
 }
